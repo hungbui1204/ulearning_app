@@ -27,6 +27,12 @@ class SignInController {
           if (!credential.user!.emailVerified) {
             //do something
           }
+          var user = credential.user;
+          if (user != null) {
+            //verified
+          } else {
+            //error
+          }
         } catch (e) {}
       }
     } catch (e) {}

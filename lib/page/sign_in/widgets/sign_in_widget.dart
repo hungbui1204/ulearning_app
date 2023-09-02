@@ -20,176 +20,17 @@ AppBar buildAppBar() {
   );
 }
 
-Widget bodyAppBar() {
-  return Column(
-    children: [
-      const SizedBox(
-        height: 40,
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 60),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            GestureDetector(
-              onTap: () {},
-              child: Container(
-                padding: const EdgeInsets.all(4),
-                height: 30,
-                width: 30,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.grey.shade300),
-                ),
-                child: const CircleAvatar(
-                  backgroundColor: Colors.white,
-                  backgroundImage: AssetImage('assets/icons/google_icon.png'),
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {},
-              child: Container(
-                height: 30,
-                width: 30,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.grey.shade300),
-                ),
-                child: const CircleAvatar(
-                  backgroundColor: Colors.white,
-                  backgroundImage: AssetImage('assets/icons/facebook_icon.png'),
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {},
-              child: Container(
-                padding: const EdgeInsets.all(4),
-                height: 30,
-                width: 30,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.grey.shade300),
-                ),
-                child: const CircleAvatar(
-                  backgroundColor: Colors.white,
-                  backgroundImage: AssetImage('assets/icons/apple_icon.png'),
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-      const SizedBox(
-        height: 20,
-      ),
-      const Text(
-        'Or use your email account to login',
-        style: TextStyle(color: Colors.grey),
-      ),
-      const SizedBox(
-        height: 60,
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Email',
-              style: TextStyle(color: Colors.grey),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            customTextField(
-              showText: true,
-              hintText: 'Enter your email address',
-              prefixIcon: const Icon(
-                Icons.account_circle,
-                color: Colors.black,
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Text(
-              'Password',
-              style: TextStyle(color: Colors.grey),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            customTextField(
-                showText: false,
-                hintText: 'Enter your password',
-                prefixIcon: const Icon(
-                  Icons.lock,
-                  color: Colors.black,
-                )),
-            TextButton(
-                onPressed: () {},
-                child: Text(
-                  'Forgot your password?',
-                  style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black,
-                      fontSize: 14,
-                      decoration: TextDecoration.underline),
-                )),
-          ],
-        ),
-      ),
-      SizedBox(
-        height: 50,
-      ),
-      SizedBox(
-          height: 50,
-          width: 320,
-          child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.indigo,
-                  shadowColor: Colors.transparent,
-                  side: const BorderSide(color: Colors.grey),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15))),
-              child: const Text(
-                'Log In',
-                style: TextStyle(fontSize: 16),
-              ))),
-      const SizedBox(
-        height: 20,
-      ),
-      SizedBox(
-          height: 50,
-          width: 320,
-          child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.grey.shade200,
-                  shadowColor: Colors.transparent,
-                  side: const BorderSide(color: Colors.grey),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15))),
-              child: const Text(
-                'Sign Up',
-                style: TextStyle(fontSize: 16, color: Colors.black),
-              )))
-    ],
-  );
-}
-
 Widget customTextField(
     {String? hintText,
     Widget? prefixIcon,
     Widget? suffixIcon,
-    required bool showText}) {
+    required bool showText,
+    void Function(String value)? func}) {
   return SizedBox(
     height: 60,
     width: 320,
     child: TextField(
+      onChanged: (value) => func!(value),
       obscureText: !showText,
       cursorColor: Colors.black,
       decoration: InputDecoration(
