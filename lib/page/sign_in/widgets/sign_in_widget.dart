@@ -45,3 +45,39 @@ Widget customTextField(
     ),
   );
 }
+
+Widget logInButton({required String buttonName, void Function()? func}) {
+  return SizedBox(
+      height: 50,
+      width: 320,
+      child: ElevatedButton(
+          onPressed: func,
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.indigo,
+              shadowColor: Colors.transparent,
+              side: const BorderSide(color: Colors.grey),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15))),
+          child: Text(
+            buttonName,
+            style: const TextStyle(fontSize: 16),
+          )));
+}
+
+Widget signUpButton({required String buttonName, void Function()? func}) {
+  return SizedBox(
+      height: 50,
+      width: 320,
+      child: ElevatedButton(
+          onPressed: func,
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.grey.shade200,
+              shadowColor: Colors.transparent,
+              side: const BorderSide(color: Colors.grey),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15))),
+          child: Text(
+            buttonName,
+            style: TextStyle(fontSize: 16, color: Colors.black),
+          )));
+}

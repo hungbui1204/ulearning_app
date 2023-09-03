@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ulearning_app/page/sign_in/bloc/sign_in_blocs.dart';
 import 'package:ulearning_app/page/sign_in/bloc/sign_in_states.dart';
+import 'package:ulearning_app/page/sign_in/sign_in_controller.dart';
 import 'package:ulearning_app/page/sign_in/widgets/sign_in_widget.dart';
 
 import 'bloc/sign_in_events.dart';
@@ -156,39 +157,16 @@ class _SignInScreenState extends State<SignInScreen> {
               SizedBox(
                 height: 50,
               ),
-              SizedBox(
-                  height: 50,
-                  width: 320,
-                  child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.indigo,
-                          shadowColor: Colors.transparent,
-                          side: const BorderSide(color: Colors.grey),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15))),
-                      child: const Text(
-                        'Log In',
-                        style: TextStyle(fontSize: 16),
-                      ))),
+              logInButton(
+                  buttonName: 'Log In',
+                  func: () {
+                    print('login button');
+                    SignInController(context: context).handleSignIn('email');
+                  }),
               const SizedBox(
                 height: 20,
               ),
-              SizedBox(
-                  height: 50,
-                  width: 320,
-                  child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.grey.shade200,
-                          shadowColor: Colors.transparent,
-                          side: const BorderSide(color: Colors.grey),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15))),
-                      child: const Text(
-                        'Sign Up',
-                        style: TextStyle(fontSize: 16, color: Colors.black),
-                      )))
+              signUpButton(buttonName: 'Sign Up')
             ],
           ),
         ),
