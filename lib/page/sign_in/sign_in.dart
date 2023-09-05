@@ -20,7 +20,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return BlocBuilder<SignInBlocs, SignInStates>(builder: (context, state) {
       return Scaffold(
         backgroundColor: Colors.white,
-        appBar: buildAppBar(),
+        appBar: buildAppBar(appBarName: 'Log In'),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -166,7 +166,11 @@ class _SignInScreenState extends State<SignInScreen> {
               const SizedBox(
                 height: 20,
               ),
-              signUpButton(buttonName: 'Sign Up')
+              signUpButton(
+                  buttonName: 'Sign Up',
+                  func: () {
+                    Navigator.of(context).pushNamed('/register');
+                  })
             ],
           ),
         ),

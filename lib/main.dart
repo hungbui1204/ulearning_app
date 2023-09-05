@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/page/bloc_providers.dart';
+import 'package:ulearning_app/page/register/register.dart';
 import 'package:ulearning_app/page/sign_in/sign_in.dart';
 import 'package:ulearning_app/page/welcome/welcome.dart';
 
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
             home: const WelcomeScreen(),
             routes: {
               "/home": (context) => const MyHomePage(title: '12345'),
-              "/sign_in": (context) => const SignInScreen()
+              "/sign_in": (context) => const SignInScreen(),
+              "/register": (context) => const RegisterScreen(),
             },
           );
         },

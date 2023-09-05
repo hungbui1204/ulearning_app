@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-AppBar buildAppBar() {
+AppBar buildAppBar({required String appBarName}) {
   return AppBar(
+    actionsIconTheme: IconThemeData(color: Colors.black),
     elevation: 0,
     backgroundColor: Colors.white,
-    title: const Center(
+    title: Center(
       child: Text(
-        'Log In',
-        style: TextStyle(
+        appBarName,
+        style: const TextStyle(
             fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black),
       ),
     ),
@@ -53,14 +54,14 @@ Widget logInButton({required String buttonName, void Function()? func}) {
       child: ElevatedButton(
           onPressed: func,
           style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.indigo,
+              backgroundColor: Colors.blue,
               shadowColor: Colors.transparent,
               side: const BorderSide(color: Colors.grey),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15))),
           child: Text(
             buttonName,
-            style: const TextStyle(fontSize: 16),
+            style: const TextStyle(fontSize: 16, color: Colors.white),
           )));
 }
 
