@@ -2,10 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearning_app/page/bloc_providers.dart';
-import 'package:ulearning_app/page/register/register.dart';
-import 'package:ulearning_app/page/sign_in/sign_in.dart';
-import 'package:ulearning_app/page/welcome/welcome.dart';
+import 'package:ulearning_app/common/routes/pages.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,16 +15,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: AppBlocProvider.allBlocProviders,
+      // providers: AppBlocProvider.allBlocProviders,
+      providers: AppPages.allBlocProviders(context),
       child: ScreenUtilInit(
         builder: (context, child) {
-          return MaterialApp(
+          return const MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: const WelcomeScreen(),
-            routes: {
-              "/sign_in": (context) => const SignInScreen(),
-              "/register": (context) => const RegisterScreen(),
-            },
+            //home: const WelcomeScreen(),
+            onGenerateRoute: AppPages.generateRouteSetting,
+            // routes: {
+            //   "/sign_in": (context) => const SignInScreen(),
+            //   "/register": (context) => const RegisterScreen(),
+            //   "/application": (context) => const ApplicationPage()
+            // },
           );
         },
       ),
