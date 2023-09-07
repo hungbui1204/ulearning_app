@@ -1,6 +1,8 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ulearning_app/common/value/constants.dart';
+import 'package:ulearning_app/global.dart';
 import 'package:ulearning_app/page/welcome/bloc/welcome_blocs.dart';
 import 'package:ulearning_app/page/welcome/bloc/welcome_events.dart';
 import 'package:ulearning_app/page/welcome/bloc/welcome_states.dart';
@@ -113,6 +115,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       duration: const Duration(microseconds: 500),
                       curve: Curves.decelerate);
                 } else {
+                  //set true when welcome page is done
+                  Global.storageService.setBool(
+                      AppConstants.STORAGE_DEVICE_OPEN_FIRST_TIME, true);
+                  // print(
+                  //     'The value is ${Global.storageService.getDeviceFirstOpen()}');
                   Navigator.of(context)
                       .pushNamedAndRemoveUntil("/sign_in", (route) => false);
                 }
