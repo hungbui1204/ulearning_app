@@ -20,3 +20,11 @@ Widget buildPage(int index) {
   ];
   return pages[index];
 }
+
+List<BottomNavigationBarItem> bottomNavItems = [
+  BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+  BottomNavigationBarItem(icon: Icon(Icons.search), label: 'search'),
+  BottomNavigationBarItem(icon: Icon(Icons.play_circle), label: 'course'),
+  BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'search'),
+  BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: 'search')
+];

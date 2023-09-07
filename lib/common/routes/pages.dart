@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ulearning_app/common/routes/names.dart';
 import 'package:ulearning_app/page/application/application_page.dart';
+import 'package:ulearning_app/page/application/bloc/application_blocs.dart';
 import 'package:ulearning_app/page/register/bloc/register_blocs.dart';
 import 'package:ulearning_app/page/register/register.dart';
 import 'package:ulearning_app/page/sign_in/bloc/sign_in_blocs.dart';
@@ -16,10 +17,9 @@ class AppPages {
         page: const WelcomeScreen(),
         bloc: BlocProvider(create: (_) => WelcomeBlocs())),
     PageEntity(
-      route: AppRoutes.APPLICATION,
-      page: const ApplicationPage(),
-      // bloc: BlocProvider(create: (_) => WelcomeBlocs())
-    ),
+        route: AppRoutes.APPLICATION,
+        page: const ApplicationPage(),
+        bloc: BlocProvider(create: (_) => ApplicationBlocs())),
     PageEntity(
         route: AppRoutes.SIGN_IN,
         page: const SignInScreen(),

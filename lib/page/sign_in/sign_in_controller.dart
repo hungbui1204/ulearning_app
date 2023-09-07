@@ -46,6 +46,8 @@ class SignInController {
           if (user != null) {
             //verified
             print('user exist');
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil('/application', (route) => false);
           } else {
             //error
             print('no user');
