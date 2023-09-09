@@ -13,18 +13,16 @@ class ApplicationPage extends StatefulWidget {
 }
 
 class _ApplicationPageState extends State<ApplicationPage> {
-  int _index = 0;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ApplicationBlocs, ApplicationStates>(
         builder: (context, state) {
       return Scaffold(
-        appBar: AppBar(),
         body: buildPage(state.index),
         bottomNavigationBar: Container(
-          height: 80,
+          height: 70,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20)),
               boxShadow: [
                 BoxShadow(
