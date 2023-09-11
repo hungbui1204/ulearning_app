@@ -129,12 +129,11 @@ Widget menuView() {
             height: 22,
             width: 60,
             decoration: BoxDecoration(
-                color: Colors.deepPurple,
-                borderRadius: BorderRadius.circular(5)),
+                color: Colors.white, borderRadius: BorderRadius.circular(5)),
             child: Center(
               child: Text(
                 'Popular',
-                style: TextStyle(color: Colors.white, fontSize: 11),
+                style: TextStyle(color: Colors.grey.shade400, fontSize: 11),
               ),
             ),
           ),
@@ -145,12 +144,11 @@ Widget menuView() {
             height: 22,
             width: 60,
             decoration: BoxDecoration(
-                color: Colors.deepPurple,
-                borderRadius: BorderRadius.circular(5)),
+                color: Colors.white, borderRadius: BorderRadius.circular(5)),
             child: Center(
               child: Text(
                 'Newest',
-                style: TextStyle(color: Colors.white, fontSize: 11),
+                style: TextStyle(color: Colors.grey.shade400, fontSize: 11),
               ),
             ),
           )

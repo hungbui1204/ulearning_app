@@ -16,6 +16,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    List<String> gridImg = [
+      'assets/images/grid1.jpg',
+      'assets/images/grid2.jpg',
+      'assets/images/grid3.jpg',
+      'assets/images/grid4.jpg'
+    ];
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: buildHomeAppBar(context),
@@ -94,14 +100,67 @@ class _HomeScreenState extends State<HomeScreen> {
                               )))),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   sliderView(context, state),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   menuView(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  GridView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              childAspectRatio: 1.4,
+                              mainAxisSpacing: 15,
+                              crossAxisSpacing: 15,
+                              crossAxisCount: 2),
+                      itemCount: 4,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          height: 100,
+                          width: 100,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage(gridImg[index]),
+                                  fit: BoxFit.fill,
+                                  colorFilter: ColorFilter.mode(
+                                      Colors.black.withOpacity(0.5),
+                                      BlendMode.darken)),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Best course for IT',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  'Flutter course',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13,
+                                      color: Colors.white.withOpacity(0.7)),
+                                )
+                              ],
+                            ),
+                          ),
+                        );
+                      })
                 ],
               ),
             ),
