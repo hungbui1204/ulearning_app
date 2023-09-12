@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ulearning_app/page/home/home_screen.dart';
+import 'package:ulearning_app/page/profile/profile_screen.dart';
 
 Widget buildPage(int index) {
   final List pages = [
@@ -16,7 +17,7 @@ Widget buildPage(int index) {
       child: Text('Chat'),
     ),
     Center(
-      child: Text('Profile'),
+      child: ProfileScreen(),
     )
   ];
   return pages[index];

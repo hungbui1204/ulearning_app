@@ -6,6 +6,7 @@ import 'package:ulearning_app/page/application/application_page.dart';
 import 'package:ulearning_app/page/application/bloc/application_blocs.dart';
 import 'package:ulearning_app/page/home/bloc/home_blocs.dart';
 import 'package:ulearning_app/page/home/home_screen.dart';
+import 'package:ulearning_app/page/profile/profile_screen.dart';
 import 'package:ulearning_app/page/register/bloc/register_blocs.dart';
 import 'package:ulearning_app/page/register/register.dart';
 import 'package:ulearning_app/page/sign_in/bloc/sign_in_blocs.dart';
@@ -34,7 +35,13 @@ class AppPages {
     PageEntity(
         route: AppRoutes.HOME_PAGE,
         page: const HomeScreen(),
-        bloc: BlocProvider(create: (_) => HomeBlocs()))
+        bloc: BlocProvider(create: (_) => HomeBlocs())),
+    PageEntity(
+        route: AppRoutes.PROFILE_PAGE,
+        page: const ProfileScreen(),
+        bloc: BlocProvider(
+          create: (_) => HomeBlocs(),
+        ))
   ];
 
   static List<BlocProvider> allBlocProviders(BuildContext context) {
