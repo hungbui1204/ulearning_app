@@ -101,7 +101,8 @@ Widget bigButton(String imgPath, String title) {
   );
 }
 
-Widget rowIcon(String imgPath, String title) {
+Widget rowIcon(
+    {required String imgPath, required String title, Function()? func}) {
   return Row(
     children: [
       SizedBox(
@@ -109,11 +110,11 @@ Widget rowIcon(String imgPath, String title) {
           width: 40,
           child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   backgroundColor: Colors.deepPurple,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15))),
-              onPressed: () {},
+              onPressed: func,
               child: Image.asset(
                 imgPath,
                 fit: BoxFit.fill,

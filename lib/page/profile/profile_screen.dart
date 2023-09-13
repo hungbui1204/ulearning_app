@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ulearning_app/common/routes/names.dart';
 import 'package:ulearning_app/page/profile/widgets/widgets.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -45,23 +46,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             Column(
               children: [
-                rowIcon('assets/icons/settings.png', 'Settings'),
+                rowIcon(
+                    imgPath: 'assets/icons/settings.png',
+                    title: 'Settings',
+                    func: () {
+                      Navigator.of(context).pushNamed(AppRoutes.SETTINGS_PAGE);
+                    }),
                 SizedBox(
                   height: 15,
                 ),
-                rowIcon('assets/icons/credit_card.png', 'Payment Details'),
+                rowIcon(
+                    imgPath: 'assets/icons/credit_card.png',
+                    title: 'Payment Details',
+                    func: () {}),
                 SizedBox(
                   height: 15,
                 ),
-                rowIcon('assets/icons/trophy.png', 'Achievements'),
+                rowIcon(
+                    imgPath: 'assets/icons/trophy.png',
+                    title: 'Achievements',
+                    func: () {}),
                 SizedBox(
                   height: 15,
                 ),
-                rowIcon('assets/icons/love.png', 'Love'),
+                rowIcon(
+                    imgPath: 'assets/icons/love.png',
+                    title: 'Love',
+                    func: () {}),
                 SizedBox(
                   height: 15,
                 ),
-                rowIcon('assets/icons/notebook.png', 'Learning Reminders')
+                rowIcon(
+                    imgPath: 'assets/icons/notebook.png',
+                    title: 'Learning Reminders',
+                    func: () {})
               ],
             )
           ],

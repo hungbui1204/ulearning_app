@@ -9,6 +9,8 @@ import 'package:ulearning_app/page/home/home_screen.dart';
 import 'package:ulearning_app/page/profile/profile_screen.dart';
 import 'package:ulearning_app/page/register/bloc/register_blocs.dart';
 import 'package:ulearning_app/page/register/register.dart';
+import 'package:ulearning_app/page/setting/bloc/settings_blocs.dart';
+import 'package:ulearning_app/page/setting/setting_screen.dart';
 import 'package:ulearning_app/page/sign_in/bloc/sign_in_blocs.dart';
 import 'package:ulearning_app/page/sign_in/sign_in.dart';
 import 'package:ulearning_app/page/welcome/bloc/welcome_blocs.dart';
@@ -41,6 +43,12 @@ class AppPages {
         page: const ProfileScreen(),
         bloc: BlocProvider(
           create: (_) => HomeBlocs(),
+        )),
+    PageEntity(
+        route: AppRoutes.SETTINGS_PAGE,
+        page: const SettingsScreen(),
+        bloc: BlocProvider(
+          create: (_) => SettingsBlocs(),
         ))
   ];
 
